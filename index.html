@@ -51,17 +51,21 @@
                         </a>
                     </div>
 
-                    <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+                    <a class="s-header__menu-toggle" href="#0"><span data-i18n="menu_toggle">Menu</span></a>
                 </div> <!-- end s-header__block -->
 
                 <nav class="s-header__nav">
 
                     <ul class="s-header__menu-links">
-                        <li class="current"><a href="#intro" class="smoothscroll">Home</a></li>
-                        <li><a href="#about" class="smoothscroll">Sobre mim</a></li>
-                        <li><a href="#services" class="smoothscroll">Serviços</a></li>
-                        <li><a href="#folio" class="smoothscroll">Projetos</a></li>
-                        <li><a href="#footer" class="smoothscroll">Contato</a></li>
+                        <li class="current"><a href="#intro" class="smoothscroll" data-i18n="menu_home">Home</a></li>
+                        <li><a href="#about" class="smoothscroll" data-i18n="menu_about">Sobre mim</a></li>
+                        <li><a href="#services" class="smoothscroll" data-i18n="menu_services">Serviços</a></li>
+                        <li><a href="#folio" class="smoothscroll" data-i18n="menu_folio">Projetos</a></li>
+                        <li><a href="#footer" class="smoothscroll" data-i18n="menu_contact">Contato</a></li>
+                        <li class="language-selector">
+                            <button class="lang-btn active" data-lang="pt" title="Português">PT</button>
+                            <button class="lang-btn" data-lang="en" title="English">EN</button>
+                        </li>
                     </ul> <!-- s-header__menu-links -->
 
                     <ul class="s-header__social">
@@ -135,14 +139,13 @@
                     <div class="column lg-12 s-intro__content-inner">
 
                         <h1 class="s-intro__content-title">
-                            Ofereço soluções criativas <br>
-                            para transformar suas <br>
-                            ideias em realidade digital
+                            <span data-i18n="intro_title_1">Ofereço soluções criativas</span> <br>
+                            <span data-i18n="intro_title_2">para transformar suas</span> <br>
+                            <span data-i18n="intro_title_3">ideias em realidade digital</span>
                         </h1>
 
                         <div class="s-intro__content-buttons">
-                            <a href="#download" class="btn btn--stroke s-intro__content-btn smoothscroll">More About
-                                Us</a>
+                            <a href="#about" class="btn btn--stroke s-intro__content-btn smoothscroll" data-i18n="intro_btn">Saiba Mais</a>
                             <a href="https://player.vimeo.com/video/14592941?color=f26522&title=0&byline=0&portrait=0"
                                 class="s-intro__content-video-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -158,7 +161,7 @@
 
                 <div class="s-intro__scroll-down">
                     <a href="#about" class="smoothscroll">
-                        <span>Deslize para baixo</span>
+                        <span data-i18n="intro_scroll">Deslize para baixo</span>
                     </a>
                 </div> <!-- s-intro__scroll-down -->
 
@@ -170,16 +173,14 @@
             <section id="about" class="s-about target-section">
 
                 <div class="row section-header" data-num="01">
-                    <h3 class="column lg-12 section-header__pretitle pretitle text-pretitle">Sobre mim</h3>
+                    <h3 class="column lg-12 section-header__pretitle pretitle text-pretitle" data-i18n="about_pretitle">Sobre mim</h3>
                     <div class="column lg-6 stack-on-1100 section-header__primary">
-                        <h2 class="title text-display-1">
-                            Sou desenvolvedor Low-Code focado em criar soluções digitais eficientes e escaláveis.
+                        <h2 class="title text-display-1" data-i18n="about_title">Sou desenvolvedor Low-Code focado em criar soluções digitais eficientes e escaláveis.
 
                         </h2>
                     </div>
                     <div class="column lg-6 stack-on-1100 section-header__secondary">
-                        <p class="desc">
-                            Atuo com FlutterFlow e Supabase criando aplicações modernas, rápidas e bem estruturadas.
+                        <p class="desc" data-i18n="about_desc">Atuo com FlutterFlow e Supabase criando aplicações modernas, rápidas e bem estruturadas.
                             Meu foco é transformar ideias em produtos funcionais, com boa experiência e prontos para
                             crescer.
 
@@ -191,53 +192,44 @@
 
                     <div class="column list-block__item">
                         <div class="list-block__title">
-                            <h3 class="h5">Escopo</h3>
+                            <h3 class="h5" data-i18n="about_scope_title">Escopo</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
-                            <p>
+                            <p data-i18n="about_scope_desc">
                                 Entendo sua ideia, objetivo e público para definir a melhor solução técnica.
-                            </p>
-
                             </p>
                         </div>
                     </div> <!-- end list-block__item -->
 
                     <div class="column list-block__item">
                         <div class="list-block__title">
-                            <h3 class="h5">Design</h3>
+                            <h3 class="h5" data-i18n="about_design_title">Design</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
-                            <p>
+                            <p data-i18n="about_design_desc">
                                 Estruturo a experiência do usuário e o fluxo do app pensando em clareza, usabilidade e
                                 conversão.
                             </p>
-
-                            </p>
                         </div>
                     </div> <!-- end list-block__item -->
 
                     <div class="column list-block__item">
                         <div class="list-block__title">
-                            <h3 class="h5">Desenvolvimento</h3>
+                            <h3 class="h5" data-i18n="about_develop_title">Desenvolvimento</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
-                            <p>
+                            <p data-i18n="about_develop_desc">
                                 Desenvolvo aplicações usando FlutterFlow, Supabase e integrações modernas com N8N.
                             </p>
-
-                            </p>
                         </div>
                     </div> <!-- end list-block__item -->
 
                     <div class="column list-block__item">
                         <div class="list-block__title">
-                            <h3 class="h5">Publicação</h3>
+                            <h3 class="h5" data-i18n="about_publish_title">Publicação</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
+                            <p data-i18n="about_publish_desc">
                                 Publicação, testes finais e entrega do projeto pronto para uso.
                             </p>
                         </div>
@@ -253,15 +245,14 @@
             <section id="services" class="s-services target-section">
 
                 <div class="row section-header" data-num="02">
-                    <h3 class="column lg-12 section-header__pretitle text-pretitle">O que ofereço</h3>
+                    <h3 class="column lg-12 section-header__pretitle text-pretitle" data-i18n="services_pretitle">O que ofereço</h3>
                     <div class="column lg-6 stack-on-1100 section-header__primary">
-                        <h2 class="title text-display-1">
-                            <!--Our services are tailored to make your business grow and stand out.-->
+                        <h2 class="title text-display-1" data-i18n="services_title">
                             Serviços personalizados para fazer seu projeto sair do papel, crescer e se destacar.
                         </h2>
                     </div>
                     <div class="column lg-6 stack-on-1100 section-header__secondary">
-                        <p class="desc">
+                        <p class="desc" data-i18n="services_desc">
                             Meu objetivo é entregar soluções digitais que atendam às suas necessidades.
                         </p>
                     </div>
@@ -282,7 +273,7 @@
                             <h3 class="h5">Objetivo</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
+                            <p data-i18n="services_desc">
                                 Criação de MVPs e produtos digitais funcionais para validar ideias rapidamente.
                             </p>
                         </div>
@@ -298,14 +289,11 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="h5">Product Design</h3>
+                            <h3 class="h5" data-i18n="service_1_title">Desenvolvimento de Aplicativos</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
-                            <p>
+                            <p data-i18n="service_1_desc">
                                 Desenvolvimento de aplicativos Android e iOS usando FlutterFlow.
-                            </p>
-
                             </p>
                         </div>
                     </div> <!-- end list-block__item -->
@@ -320,14 +308,11 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="h5">Desenvolvimento Frontend</h3>
+                            <h3 class="h5" data-i18n="service_2_title">Desenvolvimento Frontend</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
-                            <p>
-                                Dashboards, painéis administrativos e sistemas internos conectados ao Supabase.
-                            </p>
-
+                            <p data-i18n="service_2_desc">
+                                Criação de interfaces modernas e responsivas com as melhores práticas.
                             </p>
                         </div>
                     </div> <!-- end list-block__item -->
@@ -343,14 +328,11 @@
                                     <path d="M6 12h4v2H6z"></path>
                                 </svg>
                             </div>
-                            <h3 class="h5">Integrações</h3>
+                            <h3 class="h5" data-i18n="service_3_title">Consultoria e Estratégia</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
-                            <p>
-                                Integração com APIs, pagamentos, autenticação e automações(N8N).
-                            </p>
-
+                            <p data-i18n="service_3_desc">
+                                Consultoria em desenvolvimento de aplicações e estratégia tecnológica.
                             </p>
                         </div>
                     </div> <!-- end list-block__item -->
@@ -365,12 +347,11 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="h5">E-Commerce</h3>
+                            <h3 class="h5" data-i18n="service_4_title">Otimização de Performance</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
-                            <p>
-                                Soluções sob medida para startups, negócios e produtos digitais.
+                            <p data-i18n="service_4_desc">
+                                Otimização de aplicações para melhor performance e experiência do usuário.
                             </p>
 
                             </p>
@@ -387,15 +368,11 @@
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="h5">Illustration</h3>
+                            <h3 class="h5" data-i18n="service_extra_title">Serviço Extra</h3>
                         </div>
                         <div class="list-block__text">
-                            <p>
-                                Quasi in nulla maiores minus cupiditate tenetur ut officia sint. Quis consequatur
-                                officiis dolor nulla fuga itaque cum aut. Ut ut quis omnis dolor. Qui modi voluptatem
-                                eum.
-                                Minus numquam consequatur incidunt vel maiores nostrum. Commodi dignissimos sed
-                                laudantium aliquam tempora.
+                            <p data-i18n="service_extra_desc">
+                                Consultoria adicional e suporte técnico para seus projetos.
                             </p>
                         </div>
                     </div> <!-- end list-block__item -->
@@ -410,16 +387,13 @@
             <section id="folio" class="s-folio target-section">
 
                 <div class="row section-header light-on-dark" data-num="03">
-                    <h3 class="column lg-12 section-header__pretitle text-pretitle">Projetos recentes</h3>
+                    <h3 class="column lg-12 section-header__pretitle text-pretitle" data-i18n="portfolio_pretitle">Projetos recentes</h3>
                     <div class="column lg-6 stack-on-1100 section-header__primary">
-                        <h2 class="title text-display-1">
-                            <!-- Here are some of our favorite projects we have done lately. Feel free to check them out.-->
-                            Aqui estão alguns projetos que realizei recentemente.<br> 
-                            Fique à vontade para conferir.</h2>
-                        </h2>
+                        <h2 class="title text-display-1" data-i18n="portfolio_title">
+                            Aqui estão alguns projetos que realizei recentemente.</h2>
                     </div>
                     <div class="column lg-6 stack-on-1100 section-header__secondary">
-                        <p class="desc">
+                        <p class="desc" data-i18n="portfolio_desc">
                             Alguns projetos são simples e outros mais complexos, mas todos focados em entregar valor real e demonstrar capacidade técnica.
                         </p>
                     </div>
@@ -516,8 +490,8 @@
                         <img src="images/folio/500shots_so.png" alt="">
 
                         <div class="modal-popup__desc">
-                            <h5>App para delivery</h5>
-                            <p>Um Saas MVP para delivery, conta com app cliente e pagina web para adminstração</p>                            
+                            <h5 data-i18n="modal_01_title">App para delivery</h5>
+                            <p data-i18n="modal_01_desc">Um Saas MVP para delivery, conta com app cliente e pagina web para adminstração</p>                            
                             <ul class="modal-popup__cat">                                                            
                                 <li>Flutterflow</li>
                                 <li>Supabase</li>                                
@@ -544,8 +518,8 @@
                         <img src="images/folio/gallery/g-tulips.jpg" alt="">
 
                         <div class="modal-popup__desc">
-                            <h5>Caffeine & Tulips</h5>
-                            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
+                            <h5 data-i18n="modal_02_title">Caffeine & Tulips</h5>
+                            <p data-i18n="modal_02_desc">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
                                 auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
                             <ul class="modal-popup__cat">
                                 <li>Brand Identity</li>
@@ -561,8 +535,8 @@
                         <img src="images/folio/gallery/g-grayscale.jpg" alt="">
 
                         <div class="modal-popup__desc">
-                            <h5>Grayscale</h5>
-                            <p>Exercitationem reprehenderit quod explicabo consequatur aliquid ut magni ut. Deleniti quo
+                            <h5 data-i18n="modal_03_title">Grayscale</h5>
+                            <p data-i18n="modal_03_desc">Exercitationem reprehenderit quod explicabo consequatur aliquid ut magni ut. Deleniti quo
                                 corrupti illum velit eveniet ratione necessitatibus ipsam mollitia.</p>
                             <ul class="modal-popup__cat">
                                 <li>Product Design</li>
@@ -578,8 +552,8 @@
                         <img src="images/folio/gallery/g-lamp.jpg" alt="">
 
                         <div class="modal-popup__desc">
-                            <h5>The Lamp</h5>
-                            <p>Dolores velit qui quos nobis. Aliquam delectus voluptas quos possimus non voluptatem
+                            <h5 data-i18n="modal_04_title">The Lamp</h5>
+                            <p data-i18n="modal_04_desc">Dolores velit qui quos nobis. Aliquam delectus voluptas quos possimus non voluptatem
                                 voluptas voluptas. Est doloribus eligendi porro doloribus voluptatum.</p>
                             <ul class="modal-popup__cat">
                                 <li>E-Commerce</li>
@@ -596,8 +570,8 @@
                         <img src="images/folio/gallery/g-tropical.jpg" alt="">
 
                         <div class="modal-popup__desc">
-                            <h5>Tropical</h5>
-                            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
+                            <h5 data-i18n="modal_05_title">Tropical</h5>
+                            <p data-i18n="modal_05_desc">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
                                 auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
                             <ul class="modal-popup__cat">
                                 <li>Frontend Design</li>
@@ -613,8 +587,8 @@
                         <img src="images/folio/gallery/g-woodcraft.jpg" alt="">
 
                         <div class="modal-popup__desc">
-                            <h5>Woodcraft</h5>
-                            <p>Quisquam vel libero consequuntur autem voluptas. Qui aut vero. Omnis fugit mollitia
+                            <h5 data-i18n="modal_06_title">Woodcraft</h5>
+                            <p data-i18n="modal_06_desc">Quisquam vel libero consequuntur autem voluptas. Qui aut vero. Omnis fugit mollitia
                                 cupiditate voluptas. Aenean sollicitudin, lorem quis bibendum auctor.</p>
                             <ul class="modal-popup__cat">
                                 <li>E-Commerce</li>
@@ -634,7 +608,7 @@
 
                         <div class="row section-header">
                             <div class="column lg-12">
-                                <h3 class="title text-display-1">Técnologias que trabalhamos</h3>
+                                <h3 class="title text-display-1" data-i18n="tech_title">Técnologias que trabalhamos</h3>
                             </div>
                         </div> <!-- end section-header -->
 
@@ -791,9 +765,9 @@
         <footer id="footer" class="s-footer target-section">
 
             <div class="row section-header" data-num="04">
-                <h3 class="column lg-12 section-header__pretitle text-pretitle">Entre em contato</h3>
+                <h3 class="column lg-12 section-header__pretitle text-pretitle" data-i18n="footer_pretitle">Entre em contato</h3>
                 <div class="column lg-6 stack-on-1100 section-header__primary">
-                    <h2 class="title text-display-1">
+                    <h2 class="title text-display-1" data-i18n="footer_title">
                         Tem uma ideia ou um projeto épico em mente? Fale conosco.
                         Vamos trabalhar juntos e criar algo incrível.
                         Envie-nos uma mensagem em <a href="mailto:#0" title="">intelligentio@intelligentio.com</a>
@@ -802,8 +776,8 @@
                 <div class="column lg-6 stack-on-1100 section-header__secondary">
 
                     <div class="contact-block">
-                        <h6>Where To Find Us</h6>
-                        <p>
+                        <h6 data-i18n="footer_address_title">Where To Find Us</h6>
+                        <p data-i18n="footer_address">
                             1600 Amphitheatre Parkway <br>
                             Mountain View, California <br>
                             94043 US
@@ -811,9 +785,9 @@
                     </div>
 
                     <div class="contact-block">
-                        <h6>Contatos</h6>
+                        <h6 data-i18n="footer_phone_title">Contatos</h6>
                         <ul class="contact-list">
-                            <li><a href="tel:+55 11 95026-5690">+55 11 95026-5690</a></li>
+                            <li><a href="tel:+55 11 95026-5690">+55 41 99623-8073</a></li>
                             <!--<li><a href="tel:197-123-9876">+197 123 9876</a></li>-->
                         </ul>
                     </div>
@@ -824,14 +798,14 @@
             <div class="row list-block block-lg-one-half block-tab-whole block-stack-on-1000 s-footer__btns">
                 <div class="column list-block__item">
                     <div class="s-footer__contact-btn">
-                        <a href="mailto:#0" class="btn btn--primary u-fullwidth">
+                        <a href="mailto:#0" class="btn btn--primary u-fullwidth" data-i18n="cta_title">
                             Vamos conversar
                         </a>
                     </div>
                 </div>
                 <div class="column list-block__item">
                     <div class="subscribe-form s-footer__subscribe">
-                        <h6>Subscribe</h6>
+                        <h6 data-i18n="footer_subscribe_title">Subscribe</h6>
                         <form id="mc-form" class="mc-form">
                             <input type="email" name="EMAIL" id="mce-EMAIL" class="u-fullwidth text-center"
                                 placeholder="Your Email Address"
@@ -925,6 +899,7 @@
 
         <!-- Java Script
     ================================================== -->
+        <script src="js/languages.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 

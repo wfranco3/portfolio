@@ -3168,6 +3168,58 @@ img.u-pull-left {
     fill : white;
 }
 
+/* === NOVO: Language Selector === */
+.language-selector {
+    display: flex;
+    gap: 0.4rem;
+    margin-left: 1.6rem;
+    padding-left: 0;
+    align-items: center;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid #666666 !important;
+    color: white !important;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    font-family: var(--font-1);
+    text-transform: uppercase;
+}
+
+.lang-btn:hover {
+    border-color: #888888 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: white !important;
+}
+
+.lang-btn.active {
+    background: white !important;
+    color: #1a1a1a !important;
+    border-color: white !important;
+    border: 1px solid white !important;
+    font-weight: 700 !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 800px) {
+    .language-selector {
+        margin-left: 0.8rem;
+    }
+
+    .lang-btn {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.65rem;
+    }
+}
+
+/* === FIM: Language Selector === */
+
 /* --------------------------------------------------------------------
  * ## mobile menu toggle
  * -------------------------------------------------------------------- */
@@ -4678,5 +4730,52 @@ img.u-pull-left {
     .ss-go-top a {
         height : var(--vspace-1_5);
         width  : var(--vspace-1_5);
+    }
+}
+
+
+/* === NOVO: Language Selector Styles === */
+.language-selector {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid #d3d3d3;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #000;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.lang-btn:hover {
+    border-color: #000;
+    background-color: #f0f0f0;
+}
+
+.lang-btn.active {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* Media queries para responsividade */
+@media screen and (max-width: 600px) {
+    .language-selector {
+        margin-right: 10px;
+        gap: 5px;
+    }
+
+    .lang-btn {
+        padding: 4px 8px;
+        font-size: 10px;
     }
 }

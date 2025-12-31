@@ -394,6 +394,23 @@
                             // === NOVO: Adiciona estado ao histórico quando o modal abre (permite voltar com o botão do celular)
                             history.pushState({ modal: modalbox }, null);
 
+                            // === NOVO: Traduz o conteúdo do modal quando abre
+                            // Aguarda um pouco para o modal ser renderizado no DOM
+                            setTimeout(() => {
+                                const modalElement = document.querySelector('.basicLightbox--visible');
+                                if (modalElement && window.languageManager) {
+                                    // Traduz todos os elementos com data-i18n dentro do modal visível
+                                    const elementsToTranslate = modalElement.querySelectorAll('[data-i18n]');
+                                    elementsToTranslate.forEach(el => {
+                                        const key = el.dataset.i18n;
+                                        const text = translations[window.languageManager.currentLang][key];
+                                        if (text) {
+                                            el.textContent = text;
+                                        }
+                                    });
+                                }
+                            }, 50);
+
                             //detect Escape key press
                             document.addEventListener("keydown", function(event) {
                                 event = event || window.event;

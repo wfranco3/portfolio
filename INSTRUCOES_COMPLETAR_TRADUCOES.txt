@@ -1,0 +1,121 @@
+===============================================
+INSTRUÇÕES PARA COMPLETAR AS TRADUÇÕES
+===============================================
+
+BOTÕES DE IDIOMA - ✓ CORRIGIDO
+Os botões PT/EN agora têm as letras brancas e visíveis. 
+Cores: 
+  - Inativo: Fundo transparente, border branco, texto branco
+  - Hover: Fundo com 15% de branco, texto branco
+  - Ativo: Fundo branco, texto preto
+
+===============================================
+O QUE VOCÊ PRECISA FAZER AGORA:
+===============================================
+
+1. ADICIONAR data-i18n AOS SERVIÇOS EXTRAS (LINHA ~330)
+   
+   Procure por:
+   <h3 class="h5">Illustration</h3>
+   
+   Mude para:
+   <h3 class="h5" data-i18n="service_extra_title">Serviço Extra</h3>
+   
+   E mude o texto do parágrafo (lorem ipsum) para:
+   <p data-i18n="service_extra_desc">Consultoria adicional e suporte técnico para seus projetos.</p>
+
+2. ADICIONAR data-i18n AOS MODAIS DE PROJETOS (LINHAS ~530-700)
+
+   Modal 1 (Food App):
+   <h5 data-i18n="modal_01_title">App para delivery</h5>
+   <p data-i18n="modal_01_desc">Um Saas MVP para delivery, conta com app cliente e pagina web para adminstração</p>
+
+   Modal 2 (Caffeine & Tulips):
+   <h5 data-i18n="modal_02_title">Caffeine & Tulips</h5>
+   <p data-i18n="modal_02_desc">Projeto de branding e identidade visual para marca de café.</p>
+
+   Modal 3 (Grayscale):
+   <h5 data-i18n="modal_03_title">Grayscale</h5>
+   <p data-i18n="modal_03_desc">Projeto de design de produto com design system completo.</p>
+
+   Modal 4 (The Lamp):
+   <h5 data-i18n="modal_04_title">The Lamp</h5>
+   <p data-i18n="modal_04_desc">Loja de e-commerce especializada em iluminação e design.</p>
+
+   Modal 5 (Tropical):
+   <h5 data-i18n="modal_05_title">Tropical</h5>
+   <p data-i18n="modal_05_desc">Projeto de frontend com design moderno e responsivo.</p>
+
+   Modal 6 (Woodcraft):
+   <h5 data-i18n="modal_06_title">Woodcraft</h5>
+   <p data-i18n="modal_06_desc">E-commerce de produtos artesanais em madeira.</p>
+
+3. ADICIONAR data-i18n À SEÇÃO DE TECNOLOGIAS (LINHA ~750)
+
+   Procure por:
+   <h3 class="title text-display-1">Técnologias que trabalhamos</h3>
+   
+   Mude para:
+   <h3 class="title text-display-1" data-i18n="tech_title">Técnologias que trabalhamos</h3>
+
+4. ADICIONAR data-i18n AO FOOTER (LINHAS ~850+)
+
+   Pretítulo do footer:
+   <h3 class="column lg-12 section-header__pretitle text-pretitle" data-i18n="footer_pretitle">Entre em contato</h3>
+
+   Título principal do footer:
+   <h2 class="title text-display-1" data-i18n="footer_title">
+   Tem uma ideia ou um projeto épico em mente? Fale conosco...
+   </h2>
+
+   Localização:
+   <h6 data-i18n="footer_address_title">Localização</h6>
+   <p data-i18n="footer_address">1600 Amphitheatre Parkway...</p>
+
+   Telefone:
+   <h6 data-i18n="footer_phone_title">Telefone</h6>
+
+   Inscrição:
+   <h6 data-i18n="footer_subscribe_title">Inscrever-se</h6>
+
+5. (OPCIONAL) ADICIONAR data-i18n AOS DEPOIMENTOS (TESTIMONIALS)
+   
+   Se quiser traduzir os depoimentos também, adicione no HTML:
+   <strong data-i18n="testimonial_1_name">John Rockefeller</strong>
+   <span data-i18n="testimonial_1_company">Standard Oil Co.</span>
+   <p data-i18n="testimonial_1_text">Molestiae incidunt...</p>
+   
+   E no languages.js:
+   testimonial_1_name: "John Rockefeller",
+   testimonial_1_company: "Standard Oil Co.",
+   testimonial_1_text: "Molestiae incidunt...",
+
+===============================================
+VERIFICAÇÃO FINAL:
+===============================================
+
+Após fazer as alterações:
+
+1. Abra o site no navegador
+2. Clique em "PT" - deve ver tudo em português
+3. Clique em "EN" - deve ver tudo em inglês
+4. Teste cada seção: Menu, Intro, About, Services, Portfolio, Footer
+
+Se algo não traduzir:
+- Verifique se adicionou data-i18n="chave_correta" no HTML
+- Verifique se a chave existe no languages.js (em PT e EN)
+- Abra o console (F12) procure por erros
+
+===============================================
+CHAVES JÁ IMPLEMENTADAS NO JS:
+===============================================
+- Todos os menus
+- Seção Intro (títulos + botão)
+- Seção About (4 cards + descrições)
+- Seção Services (4 serviços principais + chaves extras)
+- Seção Portfolio (títulos + descrições dos 6 projetos)
+- Footer (títulos + descrições)
+
+TOTAL: ~50 chaves de tradução prontas para usar!
+
+===============================================
