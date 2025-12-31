@@ -383,6 +383,7 @@
 
             const folioLinks = document.querySelectorAll('.brick .entry__link');
             const modals = [];
+            let currentModalIndex = null;
     
             folioLinks.forEach(function(link) {
                 let modalbox = link.getAttribute('href');
@@ -390,6 +391,9 @@
                     document.querySelector(modalbox),
                     {
                         onShow: function(instance) {
+                            // Adiciona estado ao histórico quando o modal abre
+                            history.pushState({ modal: modalbox }, null);
+
                             //detect Escape key press
                             document.addEventListener("keydown", function(event) {
                                 event = event || window.event;
@@ -397,6 +401,14 @@
                                     instance.close();
                                 }
                             });
+                        },
+                        onClose: function(instance) {
+                            // Remove o estado do histórico quando o modal fecha
+                            if (currentModalIndex !== null) {
+                                history.back();
+                            }
+                            currentModalIndex = null;
+                            return true;
                         }
                     }
                 )
@@ -406,8 +418,16 @@
             folioLinks.forEach(function(link, index) {
                 link.addEventListener("click", function(event) {
                     event.preventDefault();
+                    currentModalIndex = index;
                     modals[index].show();
                 });
+            });
+
+            // Detecta quando o usuário clica no botão voltar
+            window.addEventListener('popstate', function(event) {
+                if (currentModalIndex !== null && modals[currentModalIndex].visible()) {
+                    modals[currentModalIndex].close();
+                }
             });
     
         };
