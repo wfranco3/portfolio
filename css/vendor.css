@@ -801,6 +801,7 @@ button.swiper-pagination-bullet {
     background-size     : 1.6rem 1.6rem;
     background-repeat   : no-repeat;
     cursor              : pointer;
+    filter: brightness(0) saturate(100%) invert(100%); /* Deixa branco #SEI LA O QUE ACONTECEU AQUI*/
 }
 
 .basicLightbox--visible {
