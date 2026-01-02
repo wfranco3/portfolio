@@ -25,6 +25,40 @@
 
 </head>
 
+<!--Enviar email inicio=================================================-->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+    (function () {
+        emailjs.init("iBJxJ_5HWiJ442RmA"); // ← coloque aqui
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const status = document.getElementById("form-status");
+        status.innerText = "Enviando...";
+
+        emailjs.sendForm(
+            "service_0d4khmi",
+            "template_x7hkjfg",
+            this
+        ).then(() => {
+            status.innerText = "Mensagem enviada com sucesso!";
+            this.reset();
+        }).catch((error) => {
+            status.innerText = "Erro ao enviar. Tente novamente.";
+            console.error(error);
+        });
+    });
+</script>
+<!--Enviar email fim=================================================-->
+
+
+
+
+
+
 
 <body id="top">
 
@@ -67,10 +101,10 @@
                             <button class="lang-btn" data-lang="en" title="English">EN</button>
                         </li>
                     </ul> <!-- s-header__menu-links -->
-                    
-                    
+
+
                     <ul class="s-header__social">
-                        <li><!-- LINKEDIN --> 
+                        <li><!-- LINKEDIN -->
                             <a href="https://www.linkedin.com/in/marcio-franco-cwb" class="social-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24">
                                     <path
@@ -349,7 +383,7 @@
                         </div>
                         <div class="list-block__text">
                             <p data-i18n="service_3_desc">
-                                
+
                             </p>
                         </div>
                     </div> <!-- end list-block__item -->
@@ -389,7 +423,7 @@
                         </div>
                         <div class="list-block__text">
                             <p data-i18n="service_extra_desc">
-                                
+
                             </p>
                         </div>
                     </div> <!-- end list-block__item -->
@@ -589,14 +623,14 @@
                         <div class="modal-popup__desc">
                             <h5 data-i18n="modal_05_title"></h5>
                             <p data-i18n="modal_05_desc"></p>
-                            
+
                             <ul class="modal-popup__cat">
                                 <li>Flutterflow</li>
                                 <li>Supabase</li>
                                 <li>Maps</li>
                                 <li>Real time location</li>
                             </ul>
-                            
+
                         </div>
 
                         <a href="" class="modal-popup__details">Project link</a>
@@ -628,7 +662,7 @@
 
                         <div class="row section-header">
                             <div class="column lg-12">
-                                <h3 class="title text-display-1" data-i18n="tech_title">Técnologias que trabalho</h3>
+                                <h3 class="title text-display-1" data-i18n="tech_title"></h3>
                             </div>
                         </div> <!-- end section-header -->
 
@@ -791,7 +825,7 @@
                     <h2 class="title text-display-1" data-i18n="footer_title">
                         Tem uma ideia ou um projeto épico em mente? Fale conosco.
                         Vamos trabalhar juntos e criar algo incrível.
-                        Envie-nos uma mensagem em <a href="mailto:#0" title="">intelligentio@intelligentio.com</a>
+                        Envie-nos uma mensagem em <a href="mailto:#0" title="">wfranco3@gmail.com.com</a>
                     </h2>
                 </div>
                 <div class="column lg-6 stack-on-1100 section-header__secondary">
@@ -813,7 +847,8 @@
 
                 </div>
             </div> <!-- end section-header -->
-
+            
+            <!-- Parte original    
             <div class="row list-block block-lg-one-half block-tab-whole block-stack-on-1000 s-footer__btns">
                 <div class="column list-block__item">
                     <div class="s-footer__contact-btn">
@@ -821,7 +856,9 @@
                             Vamos conversar
                         </a>
                     </div>
-                </div>
+                </div>-->
+
+            <!-- Parte original
                 <div class="column list-block__item">
                     <div class="subscribe-form s-footer__subscribe">
                         <h6 data-i18n="footer_subscribe_title">Subscribe</h6>
@@ -833,19 +870,50 @@
                                 required>
                             <input type="submit" name="subscribe" value="Subscribe"
                                 class="btn btn--primary u-fullwidth">
-                            <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cdb7b577e41181934ed6a6a44_9a91cfe7b3" tabindex="-1" value=""></div> -->
+                           <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cdb7b577e41181934ed6a6a44_9a91cfe7b3" tabindex="-1" value=""></div> 
                             <div class="mc-status"></div>
                         </form>
                     </div>
                 </div>
-            </div> <!-- end s-footer__btns -->
+            </div> --><!-- end s-footer__btns -->
+
+            <!--Formulário novo para enviar email inicio -->
+            <div class="row list-block block-lg-one-half block-tab-whole block-stack-on-1000 s-footer__btns">
+
+                <div class="column list-block__item">
+                    <div class="s-footer__contact-btn">
+
+                        <form id="contact-form" class="contact-form">
+
+                            <h6 data-i18n="cta_title">Entre em contato</h6>
+
+                            <input type="text" name="user_name" placeholder="Seu nome" class="u-fullwidth" required>
+
+                            <input type="email" name="user_email" placeholder="Seu e-mail" class="u-fullwidth" required>
+
+                            <textarea name="message" rows="4" placeholder="Sua mensagem" class="u-fullwidth"
+                                required></textarea>
+
+                            <button type="submit" class="btn btn--primary u-fullwidth">
+                                Enviar mensagem
+                            </button>
+
+                            <p class="form-status" id="form-status"></p>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+            <!--Formulário novo para enviar email fim -->
 
             <div class="row s-footer__bottom">
 
                 <div class="column lg-6 tab-12 s-footer__bottom-left">
                     <ul class="s-footer__social">
-                         <li><!-- LINKEDIN --> 
-                            <a href="https://www.linkedin.com/in/marcio-franco-cwb" >
+                        <li><!-- LINKEDIN -->
+                            <a href="https://www.linkedin.com/in/marcio-franco-cwb">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24">
                                     <path
                                         d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24ZM92,200H56V96H92ZM74,80a20,20,0,1,1,20-20A20,20,0,0,1,74,80Zm124,120H164V144c0-13.23-.27-30.23-18.42-30.23-18.42,0-21.25,14.38-21.25,29.25V200H90V96h32.64v14.25h.47c4.55-8.62,15.64-17.72,32.18-17.72C189.12,92.53,198,114.5,198,143.26Z">
@@ -854,11 +922,11 @@
                                 <span class="u-screen-reader-text">Linkedin</span>
                             </a>
                         </li>
-                        
-                                              
-                        
-                        
-                        
+
+
+
+
+
                         <!--<li>
                             <a href="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -870,7 +938,7 @@
                                 <span class="u-screen-reader-text">Facebook</span>
                             </a>
                         </li>-->
-                         <!--<li>
+                        <!--<li>
                             <a href="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     style="fill:rgba(0, 0, 0, 1);">
