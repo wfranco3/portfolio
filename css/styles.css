@@ -4782,3 +4782,26 @@ img.u-pull-left {
         font-size: 10px;
     }
 }
+
+
+/*Social icons MF 02/01/26*/
+.s-header__social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.s-header__social a svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    transition: all 0.25s ease;
+}
+
+/* HOVER */
+.s-header__social a:hover svg {
+    transform: translateY(-4px) scale(1.1);
+    fill: #ff7a00; /* ou a cor do seu tema */
+}
+/*fim-----------------------------------------*/
