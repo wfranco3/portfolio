@@ -25,34 +25,7 @@
 
 </head>
 
-<!--Enviar email inicio=================================================-->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<script>
-    (function () {
-        emailjs.init("iBJxJ_5HWiJ442RmA"); // ← coloque aqui
-    })();
-
-    document.getElementById("contact-form").addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const status = document.getElementById("form-status");
-        status.innerText = "Enviando...";
-
-        emailjs.sendForm(
-            "service_0d4khmi",
-            "template_x7hkjfg",
-            this
-        ).then(() => {
-            status.innerText = "Mensagem enviada com sucesso!";
-            this.reset();
-        }).catch((error) => {
-            status.innerText = "Erro ao enviar. Tente novamente.";
-            console.error(error);
-        });
-    });
-</script>
-<!--Enviar email fim=================================================-->
 
 
 
@@ -61,6 +34,8 @@
 
 
 <body id="top">
+
+
 
 
     <!-- preloader================================================== -->
@@ -847,7 +822,7 @@
 
                 </div>
             </div> <!-- end section-header -->
-            
+
             <!-- Parte original    
             <div class="row list-block block-lg-one-half block-tab-whole block-stack-on-1000 s-footer__btns">
                 <div class="column list-block__item">
@@ -878,18 +853,20 @@
             </div> --><!-- end s-footer__btns -->
 
             <!--Formulário novo para enviar email inicio -->
+            <!-- Formulário de Contato -->
+
             <div class="row list-block block-lg-one-half block-tab-whole block-stack-on-1000 s-footer__btns">
 
                 <div class="column list-block__item">
                     <div class="s-footer__contact-btn">
 
-                        <form id="contact-form" class="contact-form">
+                        <form id="contact-form" class="contact-form" method="POST" action="javascript:void(0);">
 
                             <h6 data-i18n="cta_title">Entre em contato</h6>
 
-                            <input type="text" name="user_name" placeholder="Seu nome" class="u-fullwidth" required>
+                            <input type="text" name="name" placeholder="Seu nome" class="u-fullwidth" required>
 
-                            <input type="email" name="user_email" placeholder="Seu e-mail" class="u-fullwidth" required>
+                            <input type="email" name="email" placeholder="Seu e-mail" class="u-fullwidth" required>
 
                             <textarea name="message" rows="4" placeholder="Sua mensagem" class="u-fullwidth"
                                 required></textarea>
@@ -906,6 +883,9 @@
                 </div>
 
             </div>
+            <!-- FIM FORMULÁRIO -->
+
+
             <!--Formulário novo para enviar email fim -->
 
             <div class="row s-footer__bottom">
@@ -922,11 +902,6 @@
                                 <span class="u-screen-reader-text">Linkedin</span>
                             </a>
                         </li>
-
-
-
-
-
                         <!--<li>
                             <a href="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -1005,6 +980,46 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
+
+
+        <!--Enviar email inicio=================================================-->
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                emailjs.init("iBJxJ_5HWiJ442RmA");
+
+                const form = document.getElementById("contact-form");
+                const status = document.getElementById("form-status");
+
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    status.innerText = "Enviando...";
+
+                    emailjs.send("service_0d4khmi", "template_x7hkjfg", {
+                        name: form.name.value,
+                        email: form.email.value,
+                        message: form.message.value
+                    })
+                        .then(() => {
+                            status.innerText = "Mensagem enviada com sucesso!";
+                            form.reset();
+
+                            // limpa a URL (evita ?name=...)
+                            window.history.replaceState({}, document.title, window.location.pathname);
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                            status.innerText = "Erro ao enviar mensagem.";
+                        });
+                });
+            });
+        </script>
+
+
+        <!--Enviar email fim=================================================-->
 </body>
 
 </html>
