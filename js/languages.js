@@ -77,7 +77,7 @@ const translations = {
         footer_pretitle: "Entre em contato",
         footer_title: "Tem uma ideia ou um projeto épico em mente? Fale conosco. Vamos trabalhar juntos e criar algo incrível.",
         footer_address_title: "Localização",
-        footer_address: "Rua Rosa Sansom da Silva Curitiba – PR Brasil",
+        footer_address: "Curitiba – PR Brasil",
         footer_phone_title: "Telefone",
         footer_subscribe_title: "Inscrever-se",
         footer_subscribe_placeholder: "Seu endereço de email",
@@ -169,7 +169,7 @@ const translations = {
         footer_pretitle: "Get in Touch",
         footer_title: "Have an epic idea or project in mind? Let's talk. Let's work together and create something amazing.",
         footer_address_title: "Location",
-        footer_address: "Rosa Sansom da Silva Street Curitiba, PR Brazil",
+        footer_address: "Curitiba, PR Brazil",
         footer_phone_title: "Phone",
         footer_subscribe_title: "Subscribe",
         footer_subscribe_placeholder: "Your Email Address",
@@ -179,9 +179,8 @@ const translations = {
         // Footer
         footer_say_hello: "Say Hello",
         footer_email: "Email",
-        footer_phone: "Phone",
-        //footer_address: "Rosa Sansom da Silva Street Curitiba, PR Brazil",// estava repetido por isso não dava certo
-        footer_copyright: "© Copyright intelligentio 2026",
+        footer_phone: "Phone",       
+        footer_copyright: "© Copyright Marcio franco 2026",
         footer_links: "Links",
         footer_back_to_top: "Back to Top",
     }
