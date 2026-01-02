@@ -853,6 +853,7 @@
             </div> --><!-- end s-footer__btns -->
 
             <!--Formulário novo para enviar email inicio -->
+
             <!-- Formulário de Contato -->
 
             <div class="row list-block block-lg-one-half block-tab-whole block-stack-on-1000 s-footer__btns">
@@ -860,26 +861,28 @@
                 <div class="column list-block__item">
                     <div class="s-footer__contact-btn">
 
-                        <form id="contact-form" class="contact-form" method="POST" action="javascript:void(0);">
+                        <form id="contact-form" class="contact-form">
 
-                            <h6 data-i18n="cta_title">Entre em contato</h6>
+                            <h6 data-i18n="contact_title">Entre em contato</h6>
 
-                            <input type="text" name="name" placeholder="Seu nome" class="u-fullwidth" required>
+                            <input type="text" name="name" class="u-fullwidth" data-i18n-placeholder="contact_name">
+                               
 
-                            <input type="email" name="email" placeholder="Seu e-mail" class="u-fullwidth" required>
+                            <input type="email" name="email" class="u-fullwidth" data-i18n-placeholder="contact_email"
+                                placeholder="Seu e-mail" required>
 
-                            <textarea name="message" rows="4" placeholder="Sua mensagem" class="u-fullwidth"
-                                required></textarea>
+                            <textarea name="message" rows="4" class="u-fullwidth"
+                                data-i18n-placeholder="contact_message" placeholder="Sua mensagem" required></textarea>
 
                             <button type="submit" class="btn btn--primary u-fullwidth">
-                                Enviar mensagem
+                                <span data-i18n="contact_send">Enviar mensagem</span>
                             </button>
 
+                            <!-- Loading -->
                             <div class="form-loading" id="form-loading">
                                 <span class="loader"></span>
-                                <span>Enviando...</span>
+                                <span data-i18n="contact_sending">Enviando...</span>
                             </div>
-
 
                             <p class="form-status" id="form-status"></p>
 
@@ -889,6 +892,7 @@
                 </div>
 
             </div>
+
             <!-- FIM FORMULÁRIO -->
 
 
@@ -1013,13 +1017,12 @@
                     })
                         .then(() => {
                             loading.classList.remove("active");
-                            status.innerText = "Mensagem enviada com sucesso!";
+                            status.innerText = window.i18n?.contact_success || "Mensagem enviada com sucesso!";
                             form.reset();
                         })
-                        .catch((error) => {
+                        .catch(() => {
                             loading.classList.remove("active");
-                            status.innerText = "Erro ao enviar. Tente novamente.";
-                            console.error(error);
+                            status.innerText = window.i18n?.contact_error || "Erro ao enviar. Tente novamente.";
                         });
                 });
             });

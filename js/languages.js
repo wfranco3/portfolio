@@ -93,8 +93,18 @@ const translations = {
         footer_copyright: "© Copyright intelligentio 2026",
         footer_links: "Links",
         footer_back_to_top: "Voltar ao Topo",
+
+        //Formulário de email==============
+        contact_title: "Entre em contato",
+        contact_name: "Seu nome",
+        contact_email: "Seu e-mail",
+        contact_message: "Sua mensagem",
+        contact_send: "Enviar mensagem",
+        contact_sending: "Enviando...",
+        contact_success: "Mensagem enviada com sucesso!",
+        contact_error: "Erro ao enviar. Tente novamente."
     },
-    
+
     en: {
         // Menu
         menu_home: "Home",
@@ -114,16 +124,16 @@ const translations = {
         about_pretitle: "About Me",
         about_title: "I'm a Low-Code developer focused on creating efficient and scalable digital solutions.",
         about_desc: "I work with FlutterFlow and Supabase creating modern, fast and well-structured applications. My focus is to transform ideas into functional products, with great experience and ready to grow.",
-        
+
         about_scope_title: "Scope",
         about_scope_desc: "Convert your business goals and then build a plan to turn them into an application.",
-        
+
         about_design_title: "Design",
         about_design_desc: "I structure the user experience and app flow thinking about clarity, usability and conversion.",
-        
+
         about_develop_title: "Development",
         about_develop_desc: "I develop applications using FlutterFlow, Supabase and modern integrations with N8N.",
-        
+
         about_publish_title: "Publishing",
         about_publish_desc: "Publishing, final testing and project delivery ready for use.",
 
@@ -135,13 +145,13 @@ const translations = {
         service_objective_desc: "Creating MVPs and functional digital products to validate ideas quickly.",
         service_1_title: "Application Development",
         service_1_desc: "Development of Android and iOS applications using FlutterFlow.",
-        
+
         service_2_title: "Frontend Development",
         service_2_desc: "Creation of modern and responsive interfaces with best practices.",
-        
+
         service_3_title: "",
         service_3_desc: "",
-        
+
         service_4_title: "Performance Optimization",
         service_4_desc: "Optimization of applications for better performance and user experience.",
         service_extra_title: "",
@@ -179,10 +189,20 @@ const translations = {
         // Footer
         footer_say_hello: "Say Hello",
         footer_email: "Email",
-        footer_phone: "Phone",       
+        footer_phone: "Phone",
         footer_copyright: "© Copyright Marcio franco 2026",
         footer_links: "Links",
         footer_back_to_top: "Back to Top",
+
+        //formulário de email==============
+        contact_title: "Get in touch",
+        contact_name: "Your name",
+        contact_email: "Your email",
+        contact_message: "Your message",
+        contact_send: "Send message",
+        contact_sending: "Sending...",
+        contact_success: "Message sent successfully!",
+        contact_error: "Error sending message."
     }
 };
 
@@ -222,7 +242,7 @@ class LanguageManager {
     setLanguage(lang) {
         this.currentLang = lang;
         localStorage.setItem('selectedLanguage', lang);
-        
+
         // Atualiza botões ativos
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
@@ -230,36 +250,40 @@ class LanguageManager {
 
         // Atualiza todos os elementos com data-i18n
         this.translatePage();
-        
+
         // Atualiza atributo lang do HTML
         document.documentElement.lang = lang;
     }
 
-    // Traduz todos os elementos da página
-    translatePage() {
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-            const key = element.dataset.i18n;
-            const text = translations[this.currentLang][key];
-            
-            if (text) {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = text;
-                } else if (element.tagName === 'A' && element.classList.contains('entry__link')) {
-                    // Para links de projeto, não alterar
-                    return;
-                } else {
-                    element.textContent = text;
-                }
-            }
-        });
+    // Traduz todos os elementos da página  
+   translatePage() {
+    const lang = this.currentLang;
 
-        // Atualiza HTML content (para múltiplas linhas como títulos)
-        document.querySelectorAll('[data-i18n-html]').forEach(element => {
-            const key = element.dataset.i18nHtml;
-            const text = translations[this.currentLang][key];
-            if (text) element.innerHTML = text;
-        });
-    }
+    // Textos normais
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+
+    // Placeholders (INPUT / TEXTAREA)
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        if (translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+        }
+    });
+
+    // Conteúdo HTML (casos especiais)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+}
+
 
     // Função helper para obter tradução
     t(key) {
