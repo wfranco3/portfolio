@@ -4805,3 +4805,38 @@ img.u-pull-left {
     fill: #ff7a00; /* ou a cor do seu tema */
 }
 /*fim-----------------------------------------*/
+
+
+
+/*loading para enviar email*/
+.form-loading {
+    display: none;
+    margin-top: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-loading.active {
+    display: flex;
+}
+
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #ddd;
+    border-top: 3px solid #000;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*Fim loading*/

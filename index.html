@@ -875,6 +875,12 @@
                                 Enviar mensagem
                             </button>
 
+                            <div class="form-loading" id="form-loading">
+                                <span class="loader"></span>
+                                <span>Enviando...</span>
+                            </div>
+
+
                             <p class="form-status" id="form-status"></p>
 
                         </form>
@@ -992,11 +998,13 @@
 
                 const form = document.getElementById("contact-form");
                 const status = document.getElementById("form-status");
+                const loading = document.getElementById("form-loading");
 
                 form.addEventListener("submit", function (e) {
                     e.preventDefault();
 
-                    status.innerText = "Enviando...";
+                    status.innerText = "";
+                    loading.classList.add("active");
 
                     emailjs.send("service_0d4khmi", "template_x7hkjfg", {
                         name: form.name.value,
@@ -1004,20 +1012,18 @@
                         message: form.message.value
                     })
                         .then(() => {
+                            loading.classList.remove("active");
                             status.innerText = "Mensagem enviada com sucesso!";
                             form.reset();
-
-                            // limpa a URL (evita ?name=...)
-                            window.history.replaceState({}, document.title, window.location.pathname);
                         })
                         .catch((error) => {
+                            loading.classList.remove("active");
+                            status.innerText = "Erro ao enviar. Tente novamente.";
                             console.error(error);
-                            status.innerText = "Erro ao enviar mensagem.";
                         });
                 });
             });
         </script>
-
 
         <!--Enviar email fim=================================================-->
 </body>
