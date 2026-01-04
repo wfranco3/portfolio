@@ -4220,7 +4220,7 @@ img.u-pull-left {
  * # CLIENTS
  *
  *
- * ------------------------------------------------------------------- */
+ * ------------------------------------------------------------------- 
 .s-clients {
     padding-top : var(--vspace-2);
 }
@@ -4285,6 +4285,98 @@ img.u-pull-left {
 .clients-list__item:nth-child(4n + 4) {
     border-style : none none solid none;
 }
+
+*/
+
+
+
+
+/* ===================================================================
+ * # CLIENTS (clean logos only) GPT
+ * ------------------------------------------------------------------- */
+
+.s-clients {
+    padding-top: var(--vspace-2);
+}
+
+.s-clients .section-header {
+    max-width: var(--width-narrower);
+    text-align: center;
+    padding-top: 0;
+    margin: 0 auto;
+}
+
+.s-clients .section-header::before {
+    display: none;
+}
+
+.s-clients h3 {
+    color: white;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* mantém o grid, remove visual de tabela */
+.clients-list {
+    position: relative;
+    margin-top: var(--vspace-2);
+    border: none;
+}
+
+/* remove bordas das células */
+.clients-list__item {
+    border: none;
+    text-align: center;
+    padding: 0;
+}
+
+/* remove hover, fundo e animações */
+.clients-list__item a {
+    display: block;
+    padding: var(--vspace-0_75);
+    background: transparent;
+    transition: none;
+}
+
+.clients-list__item a:hover,
+.clients-list__item a:focus {
+    background: transparent;
+}
+
+ logo sempre visível, tamanho original 
+.clients-list__item img {
+    margin: 0;
+    opacity: 1;
+    max-width: 100%;
+    height: auto;
+    transition: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ------------------------------------------------------------------- 
  * responsive:
