@@ -26,7 +26,7 @@ const translations = {
         about_title: "Sou desenvolvedor Low-Code focado em criar soluções digitais eficientes e escaláveis.",
         about_desc: "Atuo com FlutterFlow e Supabase criando aplicações modernas, rápidas e bem estruturadas. Meu foco é transformar ideias em produtos funcionais, com boa experiência e prontos para crescer.",
         about_scope_title: "Escopo",
-        about_scope_desc: "Converter seus objetivos de negócio e, em seguida, construir um plano para transformá-los em um aplicativo.",
+        about_scope_desc: "Converter seus objetivos de negócio e construir um plano para transformá-lo em um aplicativo.",
         about_design_title: "Design",
         about_design_desc: "Estruturo a experiência do usuário e o fluxo do app pensando em clareza, usabilidade e conversão.",
         about_develop_title: "Desenvolvimento",
@@ -47,14 +47,14 @@ const translations = {
         service_3_title: "",
         service_3_desc: "",
         service_4_title: "Otimização de Performance",
-        service_4_desc: "Otimização de aplicações para melhor performance e experiência do usuário.",
+        service_4_desc: "Otimização para melhor performance e experiência do usuário.",
         service_extra_title: "",
         service_extra_desc: "",
 
         // Portfolio
         portfolio_pretitle: "Projetos recentes",
         portfolio_title: "Aqui estão alguns projetos que realizei recentemente.",
-        portfolio_desc: "Alguns projetos são simples e outros mais complexos, mas todos focados em entregar valor real e demonstrar capacidade técnica.",
+        portfolio_desc: "Alguns projetos para demonstrar capacidade técnica.",
 
         // Modais
         modal_01_title: "App para delivery",
@@ -75,7 +75,7 @@ const translations = {
 
         // Footer
         footer_pretitle: "Entre em contato",
-        footer_title: "Tem uma ideia ou um projeto épico em mente? Fale conosco. Vamos trabalhar juntos e criar algo incrível.",
+        footer_title: "Tem uma ideia ou um projeto épico em mente? Entre em contato.",
         footer_address_title: "Localização",
         footer_address: "Curitiba – PR Brasil",
         footer_phone_title: "Telefone",
@@ -102,7 +102,18 @@ const translations = {
         contact_send: "Enviar mensagem",
         contact_sending: "Enviando...",
         contact_success: "Mensagem enviada com sucesso!",
-        contact_error: "Erro ao enviar. Tente novamente."
+        contact_error: "Erro ao enviar. Tente novamente.",
+
+        //Testimonials
+        testimonial_1_company: "Frontend low code",
+        testimonial_1_text:"Ferramenta low code para acelerar desenvolvimento de apps mobile e web",
+
+        testimonial_2_company:"Banco de dados relacional",
+        testimonial_2_text:"Banco de dados relacional open source para construir aplicações modernas.",
+
+        
+        testimonial_3_company:"Automações N8N",
+        testimonial_3_text:"A N8N utiliza automações para otimizar fluxos de trabalho e integrar diversos serviços de forma eficiente.",
     },
 
     en: {
@@ -153,14 +164,14 @@ const translations = {
         service_3_desc: "",
 
         service_4_title: "Performance Optimization",
-        service_4_desc: "Optimization of applications for better performance and user experience.",
+        service_4_desc: "Optimization for better performance and user experience.",
         service_extra_title: "",
         service_extra_desc: "",
 
         // Portfolio
         portfolio_pretitle: "Recent Projects",
         portfolio_title: "Here are some projects I've done recently.",
-        portfolio_desc: "Some projects are simple and others more complex, but all focused on delivering real value and demonstrating technical capacity.",
+        portfolio_desc: "Some projects for demonstrating technical capacity.",
         modal_01_title: "Delivery App",
         modal_01_desc: "A Saas MVP for delivery, with client app and web page for administration",
         modal_02_title: "Food  & Web page",
@@ -177,7 +188,7 @@ const translations = {
 
         // Footer
         footer_pretitle: "Get in Touch",
-        footer_title: "Have an epic idea or project in mind? Let's talk. Let's work together and create something amazing.",
+        footer_title: "Have an epic idea or project in mind? Let's talk.",
         footer_address_title: "Location",
         footer_address: "Curitiba, PR Brazil",
         footer_phone_title: "Phone",
@@ -202,8 +213,20 @@ const translations = {
         contact_send: "Send message",
         contact_sending: "Sending...",
         contact_success: "Message sent successfully!",
-        contact_error: "Error sending message."
+        contact_error: "Error sending message.",
+
+
+        //Testimonials
+        testimonial_1_company: "Frontend low code",
+        testimonial_1_text:"Low-code tool to accelerate mobile and web application development.",
+
+        testimonial_2_company:"Relational database",
+        testimonial_2_text:"Open source relational database for building modern applications.",
+
+        testimonial_3_company:"Automation N8N",
+        testimonial_3_text:"N8N automations to streamline workflows and integrate various services efficiently.",
     }
+
 };
 
 class LanguageManager {
