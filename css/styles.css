@@ -422,6 +422,7 @@ button,
 [type="reset"],
 [type="submit"] {
     -webkit-appearance : button;
+    appearance: button;/*adicionei para corrigir o warning isso não existia no código original 05/01/26*/
 }
 
 button::-moz-focus-inner,
@@ -473,6 +474,7 @@ textarea {
 
 [type="search"] {
     -webkit-appearance : textfield;
+    appearance: textfield; /*adicionei para corrigir o warning isso não existia no código original 05/01/26*/
     outline-offset     : -2px;
 }
 
@@ -3139,6 +3141,11 @@ img.u-pull-left {
 .s-header__menu-links .current a {
     color : white;
 }
+
+.s-header__menu-links .language-selector {
+    margin-top: 2rem; /* ajuste aqui 05/01/26 espaçõe entre o texto e os botões*/
+}
+
 
 /* --------------------------------------------------------------------
  * ## header social
