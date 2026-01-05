@@ -4746,6 +4746,37 @@ img.u-pull-left {
     transform  : translate(0, 0);
 }
 
+
+
+
+
+
+
+/*Whatapp fone------------------------------------------------*/
+
+.contact-list li {
+  margin-bottom: 8px;
+}
+
+.contact-list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-list i {
+  font-size: 16px;
+}
+
+.contact-list .fa-whatsapp {
+  color: #25D366;
+}
+/*Whatapp fone-----------------------------------------------------*/
+
+
+
 /* ------------------------------------------------------------------- 
  * responsive:
  * footer

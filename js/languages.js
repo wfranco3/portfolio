@@ -20,7 +20,7 @@ const translations = {
         intro_title_3: "ideias em realidade digital",
         intro_btn: "Saiba Mais",
         intro_scroll: "Deslize para baixo",
-
+        
         // About
         about_pretitle: "Sobre mim",
         about_title: "Sou desenvolvedor Low-Code focado em criar soluções digitais eficientes e escaláveis.",
@@ -37,9 +37,15 @@ const translations = {
         // Services
         services_pretitle: "O que ofereço",
         services_title: "Serviços personalizados para fazer seu projeto sair do papel, crescer e se destacar.",
+
+        service_00_title: "Objetivo",
         services_desc: "Entregar soluções digitais que atendam às suas necessidades.",
+
         service_objective_title: "Objetivo",
         service_objective_desc: "Criação de MVPs e produtos digitais funcionais para validar ideias rapidamente.",
+        
+
+
         service_1_title: "Desenvolvimento de Aplicativos",
         service_1_desc: "Desenvolvimento de aplicativos Android e iOS usando FlutterFlow.",
         service_2_title: "Desenvolvimento Frontend",
@@ -151,9 +157,14 @@ const translations = {
         // Services
         services_pretitle: "What I Offer",
         services_title: "Customized services to take your project off the ground, grow and stand out.",
+
+
+        service_00_title: "Objective",
         services_desc: "Deliver digital solutions that meet your needs.",
         service_objective_title: "Goal",
         service_objective_desc: "Creating MVPs and functional digital products to validate ideas quickly.",
+
+
         service_1_title: "Application Development",
         service_1_desc: "Development of Android and iOS applications using FlutterFlow.",
 
