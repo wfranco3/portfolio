@@ -318,8 +318,21 @@
             cursor: pointer;
             position: relative;
             user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            touch-action: manipulation;
+            -webkit-touch-callout: none;
             transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid transparent;
+        }
+
+        .decor-block,
+        .decor-block * {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .decor-block span.sub {
@@ -624,6 +637,19 @@
                 width: 48%;
                 max-width: none;
             }
+
+            .whatsapp-link {
+                font-size: 1rem;
+                justify-content: center;
+                white-space: normal;
+            }
+
+            .whatsapp-number {
+                display: block;
+                width: 100%;
+                text-align: center;
+                font-weight: 500;
+            }
         }
 
         /* Rodapé */
@@ -882,8 +908,10 @@
             </form>
 
             <div style="margin-top: var(--spacing-xl);">
-                <a href="https://wa.me/5541996238073" target="_blank" style="color: var(--color-primary); text-decoration: none; font-weight: 600; font-size: 1.125rem;">
-                    <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-right: 8px;"></i> Conversar no WhatsApp (+55 41 99623-8073)
+                <a href="https://wa.me/5541996238073" target="_blank" class="whatsapp-link" style="color: var(--color-primary); text-decoration: none; font-weight: 600; font-size: 1.125rem; display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center;">
+                    <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i>
+                    <span>Conversar no WhatsApp</span>
+                    <span class="whatsapp-number">(+55 41 99623-8073)</span>
                 </a>
             </div>
         </div>
