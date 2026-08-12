@@ -477,6 +477,76 @@
             transform: translateY(-4px);
         }
 
+        .image-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(11, 15, 30, 0.88);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-4xl);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            z-index: 2000;
+        }
+
+        .image-modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+            width: 100%;
+            border-radius: var(--rounded-xl);
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
+        }
+
+        .image-modal-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--rounded-xl);
+            max-height: calc(100vh - 160px);
+            object-fit: contain;
+            background: #111;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(20, 27, 45, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--color-primary);
+            width: 44px;
+            height: 44px;
+            border-radius: var(--rounded-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .image-modal-close:hover {
+            transform: scale(1.05);
+            background: rgba(59, 91, 245, 0.95);
+        }
+
+        .image-modal-caption {
+            margin-top: 12px;
+            color: var(--color-secondary);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
         /* Rodapé */
         footer {
             border-top: 1px solid var(--color-outline-variant);
@@ -745,6 +815,14 @@
         <i class="fa-solid fa-arrow-up"></i>
     </a>
 
+    <div class="image-modal-overlay" id="image-modal" role="dialog" aria-modal="true" aria-label="Visualização da imagem">
+        <div class="image-modal-content">
+            <button id="modal-close-button" class="image-modal-close" aria-label="Fechar imagem">×</button>
+            <img id="modal-img" class="image-modal-img" src="" alt="Imagem expandida">
+            <p id="modal-caption" class="image-modal-caption"></p>
+        </div>
+    </div>
+
     <!-- Rodapé -->
     <footer>
         <div class="container">
@@ -774,6 +852,26 @@
             }
 
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function openImageModal(src, alt) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+            if (!modal || !modalImg || !modalCaption) return;
+
+            modalImg.src = src;
+            modalImg.alt = alt || 'Imagem expandida';
+            modalCaption.textContent = alt || '';
+            modal.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            if (!modal) return;
+            modal.classList.remove('visible');
+            document.body.style.overflow = '';
         }
 
         // Dicionário de Traduções i18n
@@ -935,6 +1033,23 @@
                     .catch(() => {
                         status.innerText = translations[currentLang].contact_error;
                     });
+                });
+            }
+
+            const carouselImages = document.querySelectorAll('.carousel-slide img');
+            carouselImages.forEach(img => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function () {
+                    openImageModal(this.src, this.alt || '');
+                });
+            });
+
+            const modal = document.getElementById('image-modal');
+            if (modal) {
+                modal.addEventListener('click', function (event) {
+                    if (event.target === modal || event.target.id === 'modal-close-button') {
+                        closeImageModal();
+                    }
                 });
             }
         });
