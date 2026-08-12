@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Fundo ONA Brand (Neutral #0B0F1E com borda #252E45) -->
+  <rect width="32" height="32" rx="8" fill="#0B0F1E" stroke="#252E45" stroke-width="1.5"/>
+  
+  <!-- Letra M em branco puro (Poppins Black style) -->
+  <path d="M7 23V9h3.2l2.8 8.5L15.8 9H19v14h-2.8v-9.2l-2.7 8.2h-1l-2.7-8.2V23H7z" fill="#FFFFFF"/>
+  
+  <!-- Ponto de Acento ONA Brand (Tertiary #3B5BF5) -->
+  <circle cx="23.5" cy="21.5" r="2" fill="#3B5BF5"/>
+</svg>
