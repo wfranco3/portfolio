@@ -238,6 +238,10 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border: 1px solid transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .btn-primary {
@@ -372,6 +376,14 @@
             border-color: var(--color-tertiary);
             box-shadow: 0 0 20px rgba(59, 91, 245, 0.35);
             transform: translateY(-4px);
+        }
+
+        .glow-hover,
+        .card {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .card-icon {
