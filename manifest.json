@@ -1,0 +1,15 @@
+{
+  "name": "Marcio Franco",
+  "short_name": "Marcio Franco",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0B0F1E",
+  "theme_color": "#0B0F1E",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
