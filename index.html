@@ -527,6 +527,9 @@
             border-radius: var(--rounded-lg);
             border: 1px solid var(--color-outline);
             background: var(--color-surface);
+            max-width: 820px;
+            width: 100%;
+            margin: var(--spacing-lg) auto 0 auto;
         }
 
         .carousel-track {
@@ -552,11 +555,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(11, 15, 30, 0.4);
         }
 
         .carousel-slide img {
             width: 100%;
-            height: auto;
+            max-height: 480px;
+            object-fit: contain;
             display: block;
             cursor: zoom-in;
             user-select: none;
@@ -569,14 +574,14 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 46px;
-            height: 46px;
+            width: 44px;
+            height: 44px;
             background: rgba(11, 15, 30, 0.75);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--color-primary);
-            border-radius: var(--rounded-full);
+            border-radius: var(--rounded-md);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -602,47 +607,135 @@
             right: 16px;
         }
 
-        /* Dots Navigation (Fora e abaixo da imagem em fluxo normal) */
-        .carousel-dots {
-            position: static;
+        /* Abas de Navegação dos Projetos */
+        .project-tabs-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .project-tabs-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px;
+            background: rgba(14, 19, 36, 0.9);
+            border: 1px solid var(--color-outline);
+            border-radius: var(--rounded-md);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            max-width: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .project-tabs-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--color-secondary);
+            border: 1px solid transparent;
+            border-radius: var(--rounded-sm);
+            font-family: var(--font-family);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .project-tab-btn i {
+            font-size: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .project-tab-btn:hover {
+            color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .project-tab-btn.active {
+            background: var(--color-tertiary);
+            color: #FFFFFF;
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 18px rgba(59, 91, 245, 0.5);
+        }
+
+        .project-tab-btn.active i {
+            transform: scale(1.05);
+        }
+
+        /* Painéis de Conteúdo dos Projetos */
+        .project-panel {
+            display: none;
+            animation: fadeInTab 0.35s ease forwards;
+        }
+
+        .project-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Grid de Destaques Técnicos do Projeto */
+        .project-highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .project-highlight-item {
+            background: rgba(11, 15, 30, 0.65);
+            border: 1px solid var(--color-outline);
+            border-radius: var(--rounded-md);
+            padding: 18px 20px;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .project-highlight-item:hover {
+            border-color: rgba(59, 91, 245, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .project-highlight-item h4 {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
             gap: 10px;
-            margin-top: var(--spacing-md);
-            padding: 8px 18px;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            background: rgba(11, 15, 30, 0.65);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: var(--rounded-full);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.95rem;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
-        .carousel-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.35);
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            transition: all 0.25s ease;
+        .project-highlight-item h4 i {
+            color: var(--color-tertiary);
+            font-size: 1rem;
         }
 
-        .carousel-dot:hover {
-            background-color: rgba(255, 255, 255, 0.75);
-        }
-
-        .carousel-dot.active {
-            background-color: var(--color-tertiary);
-            box-shadow: 0 0 10px var(--color-tertiary);
-            transform: scale(1.3);
-            width: 11px;
-            height: 11px;
+        .project-highlight-item p {
+            font-size: 0.875rem;
+            color: var(--color-secondary);
+            line-height: 1.55;
+            margin: 0;
         }
 
         /* FAQ Accordion */
@@ -970,6 +1063,25 @@
                 margin-top: var(--spacing-lg);
             }
 
+            .project-tabs-nav {
+                width: 100%;
+                justify-content: stretch;
+                padding: 4px;
+                gap: 4px;
+            }
+
+            .project-tab-btn {
+                flex: 1;
+                justify-content: center;
+                padding: 10px 8px;
+                font-size: 0.8rem;
+                gap: 6px;
+            }
+
+            .project-highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
             .carousel-slide img {
                 width: 100%;
                 max-height: 80vh;
@@ -977,23 +1089,19 @@
             }
 
             .carousel-arrow {
-                display: none;
+                display: flex;
+                width: 38px;
+                height: 38px;
+                font-size: 0.95rem;
+                background: rgba(11, 15, 30, 0.88);
             }
 
-            .carousel-dots {
-                margin-top: 14px;
-                padding: 6px 14px;
-                gap: 8px;
+            .carousel-arrow-prev {
+                left: 8px;
             }
 
-            .carousel-dot {
-                width: 8px;
-                height: 8px;
-            }
-
-            .carousel-dot.active {
-                width: 10px;
-                height: 10px;
+            .carousel-arrow-next {
+                right: 8px;
             }
 
             .image-modal-overlay {
@@ -1063,8 +1171,11 @@
         <div class="container">
             <div class="hero-grid">
                 <div>
-                    <span class="label-tag" data-i18n="hero_tag">Spec-Driven & AI-Assisted Engineering</span>
-                    <h1 class="display-lg" data-i18n="hero_title">Vibe Coding com Rigor Arquitetural.</h1>
+                    <span class="label-tag" data-i18n="hero_tag">AI-Assisted Software Engineering</span>
+                    <h1 class="display-lg" data-i18n="hero_title">
+                        Vibe Coding
+                        <span style="font-size: 0.52em; color: var(--color-secondary); font-weight: 600; display: block; margin-top: 6px; letter-spacing: 0.5px;">SDD • Spec-Driven Development</span>
+                    </h1>
                     <p style="margin-top: var(--spacing-md); font-size: 1.125rem;" data-i18n="hero_desc">
                         Desenvolvimento acelerado por <b>agentes de IA</b> e guiado por <b>especificações de alta precisão</b>. Construo aplicações Web e Mobile escaláveis mantendo total controle técnico.
                     </p>
@@ -1222,72 +1333,247 @@
             <span class="label-tag" data-i18n="folio_tag">Projetos</span>
             <h2 class="h2-title display-md" data-i18n="folio_title">Aplicações desenvolvidas com arquitetura spec-driven.</h2>
 
-            <div class="card glow-hover folio-card">
-                <!-- Cabeçalho do Card Food App -->
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
-                    <div>
-                        <span class="label-tag" data-i18n="foodapp_tag" style="margin-bottom: 8px;">Estudo de Caso</span>
-                        <h3 class="h3-title display-sm" style="margin-bottom: 4px;">Food App & Admin Platform</h3>
-                        <p data-i18n="foodapp_desc" style="color: var(--color-secondary);">
-                            Solução completa para delivery composta por aplicativo mobile para clientes e painel web administrativo.
-                        </p>
-                    </div>
-                    <div class="tech-list" style="margin: 0;">
-                        <span class="tech-item">Web & Mobile</span>
-                        <span class="tech-item">Spec-Driven</span>
-                        <span class="tech-item">AI Agents</span>
-                    </div>
-                </div>
-
-                <!-- Carrossel de Imagens Reais da pasta images/folio -->
-                <div class="carousel-container">
-                    <div class="carousel-track" id="foodapp-track">
-                        <div class="carousel-slide">
-                            <img src="images/folio/500shots_so.png" alt="Food App - Dashboard & Pedidos">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/185shots_so.png" alt="Food App - Cardápio & Categorias">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/370shots_so.png" alt="Food App - Detalhes do Produto">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/394shots_so.png" alt="Food App - Carrinho & Checkout">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/720shots_so.png" alt="Food App - Acompanhamento em Tempo Real">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/739shots_so.png" alt="Food App - Perfil & Histórico">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/984shots_so.png" alt="Food App - Painel Admin">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/988shots_so.png" alt="Food App - Gestão de Pedidos">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/image1.png" alt="Food App - Mobile Screen 1">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/image2.png" alt="Food App - Mobile Screen 2">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="images/folio/image3.png" alt="Food App - Mobile Screen 3">
-                        </div>
-                    </div>
-
-                    <!-- Controles do Carrossel Desktop (Setas Laterais) -->
-                    <button class="carousel-arrow carousel-arrow-prev" onclick="moveCarousel(-1)" aria-label="Anterior">
-                        <i class="fa-solid fa-chevron-left"></i>
+            <!-- Abas Seletoras de Projeto -->
+            <div class="project-tabs-container">
+                <div class="project-tabs-nav">
+                    <button class="project-tab-btn active" data-target="food" onclick="switchProjectTab('food')">
+                        <i class="fa-solid fa-utensils"></i> <span data-i18n="tab_food">Food App</span>
                     </button>
-                    <button class="carousel-arrow carousel-arrow-next" onclick="moveCarousel(1)" aria-label="Próximo">
-                        <i class="fa-solid fa-chevron-right"></i>
+                    <button class="project-tab-btn" data-target="lumi" onclick="switchProjectTab('lumi')">
+                        <i class="fa-solid fa-tv"></i> <span data-i18n="tab_lumi">Lumi TV</span>
+                    </button>
+                    <button class="project-tab-btn" data-target="portal" onclick="switchProjectTab('portal')">
+                        <i class="fa-solid fa-graduation-cap"></i> <span data-i18n="tab_portal">Portal Language</span>
                     </button>
                 </div>
+            </div>
 
-                <!-- Indicadores de Página (Dots) abaixo da imagem -->
-                <div class="carousel-dots" id="carousel-dots-container"></div>
+            <!-- ============================================== -->
+            <!-- PAINEL 1: FOOD APP & DELIVERY PLATFORM -->
+            <!-- ============================================== -->
+            <div id="project-panel-food" class="project-panel active">
+                <div class="card glow-hover folio-card">
+                    <!-- Cabeçalho do Card Food App -->
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                        <div>
+                            <span class="label-tag" data-i18n="food_tag" style="margin-bottom: 8px;">Full-Stack • Web & Mobile</span>
+                            <h3 class="h3-title display-sm" data-i18n="food_title" style="margin-bottom: 6px;">Food App & Delivery Platform</h3>
+                            <p data-i18n="food_desc" style="color: var(--color-secondary); max-width: 780px;">
+                                Ecossistema completo para o setor de alimentação que conecta estabelecimentos e clientes através de aplicativo mobile de pedidos e painel web administrativo em tempo real.
+                            </p>
+                        </div>
+                        <div class="tech-list" style="margin: 0;">
+                            <span class="tech-item">Web & Mobile</span>
+                            <span class="tech-item">Asaas API</span>
+                            <span class="tech-item">OneSignal Push</span>
+                            <span class="tech-item">Map Route</span>
+                            <span class="tech-item">Admin Dashboard</span>
+                        </div>
+                    </div>
+
+                    <!-- Pílulas de Arquitetura & Engenharia -->
+                    <div class="project-highlights-grid">
+                        <div class="project-highlight-item">
+                            <h4 data-i18n="food_h1_title"><i class="fa-solid fa-bell"></i> Notificações por Ciclo de Pedido</h4>
+                            <p data-i18n="food_h1_desc">Pipeline com OneSignal que dispara notificações a cada mudança de status (Pago ➔ Em Preparo ➔ Saiu para Entrega ➔ Entregue).</p>
+                        </div>
+                        <div class="project-highlight-item">
+                            <h4 data-i18n="food_h2_title"><i class="fa-solid fa-route"></i> Traçado de Rota no Mapa</h4>
+                            <p data-i18n="food_h2_desc">Visualização gráfica no mapa ligando a origem (estabelecimento) ao endereço do cliente (destino) para conferência do trajeto.</p>
+                        </div>
+                        <div class="project-highlight-item">
+                            <h4 data-i18n="food_h3_title"><i class="fa-solid fa-cash-register"></i> Asaas & Painel Financeiro</h4>
+                            <p data-i18n="food_h3_desc">Cobrança integrada com gateway Asaas e painel web completo com controle de mais vendidos, fluxo financeiro e cardápio.</p>
+                        </div>
+                    </div>
+
+                    <!-- Carrossel Food App -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="food-track" data-project="food">
+                            <div class="carousel-slide">
+                                <img src="images/food/500shots_so.webp" alt="Food App - Dashboard & Pedidos">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/food/185shots_so.webp" alt="Food App - Cardápio & Categorias">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/food/370shots_so.webp" alt="Food App - Detalhes do Produto">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/food/394shots_so.webp" alt="Food App - Carrinho & Checkout">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/food/720shots_so.webp" alt="Food App - Visualização do Trajeto no Mapa">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/food/image3.webp" alt="Food App - Interface Mobile & Pedidos">
+                            </div>
+                        </div>
+
+                        <!-- Controles do Carrossel Desktop -->
+                        <button class="carousel-arrow carousel-arrow-prev" onclick="moveProjectCarousel('food', -1)" aria-label="Anterior">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow carousel-arrow-next" onclick="moveProjectCarousel('food', 1)" aria-label="Próximo">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- PAINEL 2: LUMI TV (SMART TVS) -->
+            <!-- ============================================== -->
+            <div id="project-panel-lumi" class="project-panel">
+                <div class="card glow-hover folio-card">
+                    <!-- Cabeçalho do Card Lumi TV -->
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                        <div>
+                            <span class="label-tag" data-i18n="lumi_tag" style="margin-bottom: 8px;">Smart TV Engineering • Low-End Hardware</span>
+                            <h3 class="h3-title display-sm" data-i18n="lumi_title" style="margin-bottom: 6px;">Lumi TV - IPTV Player para Smart TVs</h3>
+                            <p data-i18n="lumi_desc" style="color: var(--color-secondary); max-width: 780px;">
+                                Aplicativo de streaming e reprodução de listas IPTV desenvolvido sob medida para TVs LG (webOS) e Samsung (Tizen), superando severas limitações de hardware.
+                            </p>
+                        </div>
+                        <div class="tech-list" style="margin: 0;">
+                            <span class="tech-item">LG webOS</span>
+                            <span class="tech-item">Samsung Tizen</span>
+                            <span class="tech-item">IPTV Engine</span>
+                            <span class="tech-item">Spatial Navigation</span>
+                            <span class="tech-item">Low Memory Profile</span>
+                        </div>
+                    </div>
+
+                    <!-- Pílulas de Arquitetura & Engenharia -->
+                    <div class="project-highlights-grid">
+                        <div class="project-highlight-item">
+                            <h4 data-i18n="lumi_h1_title"><i class="fa-solid fa-microchip"></i> Fluidez em Hardware Limitado</h4>
+                            <p data-i18n="lumi_h1_desc">O maior desafio do projeto: renderização otimizada para manter 60fps estáveis sob severas restrições de CPU e memória RAM das TVs.</p>
+                        </div>
+                        <div class="project-highlight-item">
+                            <h4 data-i18n="lumi_h2_title"><i class="fa-solid fa-gamepad"></i> Navegação por Controle Remoto</h4>
+                            <p data-i18n="lumi_h2_desc">Arquitetura de foco direcional (D-Pad) adaptada estritamente para controles remotos físicos, mapeando keycodes de webOS e Tizen.</p>
+                        </div>
+                        <div class="project-highlight-item">
+                            <h4 data-i18n="lumi_h3_title"><i class="fa-solid fa-tv"></i> LG & Samsung Compliance</h4>
+                            <p data-i18n="lumi_h3_desc">Estruturação de ciclo de vida e requisitos de loja alinhados às diretrizes oficiais da LG Content Store e Samsung Smart Hub.</p>
+                        </div>
+                    </div>
+
+                    <!-- Carrossel Lumi TV -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="lumi-track" data-project="lumi">
+                            <div class="carousel-slide">
+                                <img src="images/lumi/lumi_2.webp" alt="Lumi TV - Grade de Canais & Categorias">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/lumi/lumi_3.webp" alt="Lumi TV - Player em Execução com Baixo Consumo">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/lumi/lumi_4.webp" alt="Lumi TV - Navegação Otimizada D-Pad">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/lumi/lumi_6.webp" alt="Lumi TV - Guia de Programação EPG">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/lumi/lumi_8.webp" alt="Lumi TV - Gestão de Listas IPTV & Perfis">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/lumi/lumi_1.webp" alt="Lumi TV - Splash & Inicialização Leve">
+                            </div>
+                        </div>
+
+                        <!-- Controles do Carrossel Desktop -->
+                        <button class="carousel-arrow carousel-arrow-prev" onclick="moveProjectCarousel('lumi', -1)" aria-label="Anterior">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow carousel-arrow-next" onclick="moveProjectCarousel('lumi', 1)" aria-label="Próximo">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- PAINEL 3: PORTAL LANGUAGE (EDTECH SAAS) -->
+            <!-- ============================================== -->
+            <div id="project-panel-portal" class="project-panel">
+                <div class="card glow-hover folio-card">
+                    <!-- Cabeçalho do Card Portal Language -->
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                        <div>
+                            <span class="label-tag" data-i18n="portal_tag" style="margin-bottom: 8px;">EdTech SaaS & Data Pipeline • Marketplace</span>
+                            <h3 class="h3-title display-sm" data-i18n="portal_title" style="margin-bottom: 6px;">Portal Language - Hub Educacional & Captação</h3>
+                            <p data-i18n="portal_desc" style="color: var(--color-secondary); max-width: 780px;">
+                                Plataforma que conecta professores de inglês e alunos com sites/portfólios individuais, venda de infoprodutos via Stripe e geração ativa de leads via LinkedIn.
+                            </p>
+                        </div>
+                        <div class="tech-list" style="margin: 0;">
+                            <span class="tech-item">Multi-Tenant</span>
+                            <span class="tech-item">Stripe Checkout</span>
+                            <span class="tech-item">LinkedIn Scraping</span>
+                            <span class="tech-item">Google Drive CDN</span>
+                            <span class="tech-item">Affiliates</span>
+                        </div>
+                    </div>
+
+                    <!-- Pílulas de Arquitetura & Engenharia -->
+                    <div class="project-highlights-grid">
+                        <div class="project-highlight-item">
+                            <h4 data-i18n="portal_h1_title"><i class="fa-solid fa-robot"></i> Pipeline de Leads no LinkedIn</h4>
+                            <p data-i18n="portal_h1_desc">Scraping com filtros de intenção profissional para nutrir semanalmente um pool de alunos qualificados para os professores abordarem.</p>
+                        </div>
+                        <div class="project-highlight-item">
+                            <h4 data-i18n="portal_h2_title"><i class="fa-solid fa-cloud"></i> Custo Zero em Mídia (Google Drive)</h4>
+                            <p data-i18n="portal_h2_desc">Distribuição de aulas e materiais via links estruturados do Google Drive, sem consumir custos de infraestrutura ou storage de vídeo.</p>
+                        </div>
+                        <div class="project-highlight-item">
+                            <h4 data-i18n="portal_h3_title"><i class="fa-solid fa-store"></i> Portfólios & Loja Digital (Stripe)</h4>
+                            <p data-i18n="portal_h3_desc">Cada professor tem sua página pública, vitrine de cursos fechados integrada ao Stripe e sistema de afiliados com cupons promocionais.</p>
+                        </div>
+                    </div>
+
+                    <!-- Carrossel Portal Language -->
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="portal-track" data-project="portal">
+                            <div class="carousel-slide">
+                                <img src="images/portal/Portal.webp" alt="Portal Language - Hub Educacional & Painel Central">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/portal/Portal_1.webp" alt="Portal Language - Gestão de Alunos & Códigos de Acesso">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/portal/Portal_2.webp" alt="Portal Language - Portfólio Individual do Professor">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/portal/Portal_3.webp" alt="Portal Language - Vitrine de Cursos & Loja Digital">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/portal/Portal_4.webp" alt="Portal Language - Distribuição de Aulas via Google Drive">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/portal/Portal_5.webp" alt="Portal Language - Checkout Seguro Integrado ao Stripe">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/portal/Portal_6.webp" alt="Portal Language - Pool de Leads Qualificados LinkedIn">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/portal/Portal_7.webp" alt="Portal Language - Programa de Afiliados & Links de Desconto">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/portal/Portal8.webp" alt="Portal Language - Métricas de Vendas & Administrativo">
+                            </div>
+                        </div>
+
+                        <!-- Controles do Carrossel Desktop -->
+                        <button class="carousel-arrow carousel-arrow-prev" onclick="moveProjectCarousel('portal', -1)" aria-label="Anterior">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow carousel-arrow-next" onclick="moveProjectCarousel('portal', 1)" aria-label="Próximo">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1434,41 +1720,58 @@
     <!-- JS Integrado (Carrossel, Modal, EmailJS & Traduções PT/EN) -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-        // Lógica do Carrossel do Food App
-        let currentSlide = 0;
-
-        function updateDots(index) {
-            currentSlide = index;
-            const dots = document.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, i) => {
-                if (i === currentSlide) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
+        // Sistema de Abas de Projetos
+        function switchProjectTab(projectId) {
+            document.querySelectorAll('.project-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.target === projectId);
             });
+            document.querySelectorAll('.project-panel').forEach(panel => {
+                const isActive = panel.id === `project-panel-${projectId}`;
+                panel.style.display = isActive ? 'block' : 'none';
+                panel.classList.toggle('active', isActive);
+            });
+            // Recalcula alinhamento do slide do projeto ativo
+            if (projectCarousels[projectId]) {
+                const p = projectCarousels[projectId];
+                setTimeout(() => {
+                    const slideWidth = p.track.clientWidth;
+                    if (slideWidth > 0) {
+                        p.track.scrollLeft = p.currentIndex * slideWidth;
+                    }
+                }, 50);
+            }
         }
 
-        function goToSlide(index) {
-            const track = document.getElementById('foodapp-track');
-            if (!track) return;
-            const slides = track.querySelectorAll('.carousel-slide');
-            const totalSlides = slides.length;
-            if (index < 0) index = totalSlides - 1;
-            if (index >= totalSlides) index = 0;
+        // Sistema Universal de Carrossel para múltiplos projetos
+        const projectCarousels = {};
 
-            currentSlide = index;
-            const slideWidth = track.clientWidth;
-            track.scrollTo({
-                left: currentSlide * slideWidth,
+        function goToProjectSlide(projectId, index) {
+            const p = projectCarousels[projectId];
+            if (!p || !p.track) return;
+            const slides = p.track.querySelectorAll('.carousel-slide');
+            const total = slides.length;
+            if (total === 0) return;
+            if (index < 0) index = total - 1;
+            if (index >= total) index = 0;
+
+            p.currentIndex = index;
+            const slideWidth = p.track.clientWidth;
+            p.track.scrollTo({
+                left: p.currentIndex * slideWidth,
                 behavior: 'smooth'
             });
-            updateDots(currentSlide);
         }
 
-        function moveCarousel(direction) {
-            goToSlide(currentSlide + direction);
+        function moveProjectCarousel(projectId, direction) {
+            const current = projectCarousels[projectId] ? projectCarousels[projectId].currentIndex : 0;
+            goToProjectSlide(projectId, current + direction);
         }
+
+        // Compatibilidade com chamadas legado
+        let currentSlide = 0;
+        function updateDots(index) {}
+        function goToSlide(index) { goToProjectSlide('food', index); }
+        function moveCarousel(direction) { moveProjectCarousel('food', direction); }
 
         function openImageModal(src, alt) {
             const modal = document.getElementById('image-modal');
@@ -1549,8 +1852,8 @@
                 "menu_stack": "Metodologia",
                 "menu_faq": "Dúvidas",
                 "menu_contact": "Contato",
-                "hero_tag": "Spec-Driven & AI-Assisted Engineering",
-                "hero_title": "Vibe Coding com Rigor Arquitetural.",
+                "hero_tag": "AI-Assisted Software Engineering",
+                "hero_title": "Vibe Coding<span style=\"font-size: 0.52em; color: var(--color-secondary); font-weight: 600; display: block; margin-top: 6px; letter-spacing: 0.5px;\">SDD • Spec-Driven Development</span>",
                 "hero_desc": "Desenvolvimento acelerado por <b>agentes de IA</b> e guiado por <b>especificações de alta precisão</b>. Construo aplicações Web e Mobile escaláveis mantendo total controle técnico.",
                 "btn_contact": "Entre em Contato",
                 "btn_projects": "Ver Projetos",
@@ -1589,8 +1892,36 @@
                 "s2_desc": "Desenvolvimento de aplicativos móveis eficientes e sob medida para iOS e Android.",
                 "folio_tag": "Projetos",
                 "folio_title": "Aplicações desenvolvidas com arquitetura spec-driven.",
-                "foodapp_tag": "Estudo de Caso",
-                "foodapp_desc": "Solução completa para delivery composta por aplicativo mobile para clientes e painel web administrativo.",
+                "tab_food": "Food App",
+                "tab_lumi": "Lumi TV",
+                "tab_portal": "Portal Language",
+                "food_tag": "Full-Stack • Web & Mobile",
+                "food_title": "Food App & Delivery Platform",
+                "food_desc": "Ecossistema completo para o setor de alimentação que conecta estabelecimentos e clientes através de aplicativo mobile de pedidos e painel web administrativo em tempo real.",
+                "food_h1_title": "<i class=\"fa-solid fa-bell\"></i> Notificações por Ciclo de Pedido",
+                "food_h1_desc": "Pipeline com OneSignal que dispara notificações a cada mudança de status (Pago ➔ Em Preparo ➔ Saiu para Entrega ➔ Entregue).",
+                "food_h2_title": "<i class=\"fa-solid fa-route\"></i> Traçado de Rota no Mapa",
+                "food_h2_desc": "Visualização gráfica no mapa ligando a origem (estabelecimento) ao endereço do cliente (destino) para conferência do trajeto.",
+                "food_h3_title": "<i class=\"fa-solid fa-cash-register\"></i> Asaas & Painel Financeiro",
+                "food_h3_desc": "Cobrança integrada com gateway Asaas e painel web completo com controle de mais vendidos, fluxo financeiro e cardápio.",
+                "lumi_tag": "Smart TV Engineering • Low-End Hardware",
+                "lumi_title": "Lumi TV - IPTV Player para Smart TVs",
+                "lumi_desc": "Aplicativo de streaming e reprodução de listas IPTV desenvolvido sob medida para TVs LG (webOS) e Samsung (Tizen), superando severas limitações de hardware.",
+                "lumi_h1_title": "<i class=\"fa-solid fa-microchip\"></i> Fluidez em Hardware Limitado",
+                "lumi_h1_desc": "O maior desafio do projeto: renderização otimizada para manter 60fps estáveis sob severas restrições de CPU e memória RAM das TVs.",
+                "lumi_h2_title": "<i class=\"fa-solid fa-gamepad\"></i> Navegação por Controle Remoto",
+                "lumi_h2_desc": "Arquitetura de foco direcional (D-Pad) adaptada estritamente para controles remotos físicos, mapeando keycodes de webOS e Tizen.",
+                "lumi_h3_title": "<i class=\"fa-solid fa-tv\"></i> LG & Samsung Compliance",
+                "lumi_h3_desc": "Estruturação de ciclo de vida e requisitos de loja alinhados às diretrizes oficiais da LG Content Store e Samsung Smart Hub.",
+                "portal_tag": "EdTech SaaS & Data Pipeline • Marketplace",
+                "portal_title": "Portal Language - Hub Educacional & Captação",
+                "portal_desc": "Plataforma que conecta professores de inglês e alunos com sites/portfólios individuais, venda de infoprodutos via Stripe e geração ativa de leads via LinkedIn.",
+                "portal_h1_title": "<i class=\"fa-solid fa-robot\"></i> Pipeline de Leads no LinkedIn",
+                "portal_h1_desc": "Scraping com filtros de intenção profissional para nutrir semanalmente um pool de alunos qualificados para os professores abordarem.",
+                "portal_h2_title": "<i class=\"fa-solid fa-cloud\"></i> Custo Zero em Mídia (Google Drive)",
+                "portal_h2_desc": "Distribuição de aulas e materiais via links estruturados do Google Drive, sem consumir custos de infraestrutura ou storage de vídeo.",
+                "portal_h3_title": "<i class=\"fa-solid fa-store\"></i> Portfólios & Loja Digital (Stripe)",
+                "portal_h3_desc": "Cada professor tem sua página pública, vitrine de cursos fechados integrada ao Stripe e sistema de afiliados com cupons promocionais.",
                 "stack_tag": "Ecossistema Técnico",
                 "stack_title": "Ferramentas & Agentes de IA",
                 "stack_card_title": "Ambiente de Alta Performance",
@@ -1627,8 +1958,8 @@
                 "menu_stack": "Methodology",
                 "menu_faq": "FAQ",
                 "menu_contact": "Contact",
-                "hero_tag": "Spec-Driven & AI-Assisted Engineering",
-                "hero_title": "Vibe Coding with Architectural Rigor.",
+                "hero_tag": "AI-Assisted Software Engineering",
+                "hero_title": "Vibe Coding<span style=\"font-size: 0.52em; color: var(--color-secondary); font-weight: 600; display: block; margin-top: 6px; letter-spacing: 0.5px;\">SDD • Spec-Driven Development</span>",
                 "hero_desc": "Accelerated development powered by <b>AI agents</b> guided by <b>high-precision specifications</b>. Fast-paced Web and Mobile delivery with total technical control.",
                 "btn_contact": "Get in Touch",
                 "btn_projects": "View Projects",
@@ -1667,8 +1998,36 @@
                 "s2_desc": "Efficient, custom mobile app development for iOS and Android.",
                 "folio_tag": "Projects",
                 "folio_title": "Applications built with spec-driven architecture.",
-                "foodapp_tag": "Case Study",
-                "foodapp_desc": "Complete delivery solution consisting of a mobile app for customers and an administrative web panel.",
+                "tab_food": "Food App",
+                "tab_lumi": "Lumi TV",
+                "tab_portal": "Portal Language",
+                "food_tag": "Full-Stack • Web & Mobile",
+                "food_title": "Food App & Delivery Platform",
+                "food_desc": "Complete food sector ecosystem connecting establishments and customers via a mobile ordering app and real-time administrative web panel.",
+                "food_h1_title": "<i class=\"fa-solid fa-bell\"></i> Order Cycle Push Notifications",
+                "food_h1_desc": "OneSignal pipeline triggering automated push notifications at every status update (Paid ➔ In Prep ➔ Out for Delivery ➔ Delivered).",
+                "food_h2_title": "<i class=\"fa-solid fa-route\"></i> Map Route Line Preview",
+                "food_h2_desc": "Interactive map line connecting origin (restaurant) to destination (customer) for visual route verification.",
+                "food_h3_title": "<i class=\"fa-solid fa-cash-register\"></i> Asaas Gateway & Financial Admin",
+                "food_h3_desc": "Integrated billing via Asaas gateway with admin analytics for top-sellers, financial revenue, and menu management.",
+                "lumi_tag": "Smart TV Engineering • Low-End Hardware",
+                "lumi_title": "Lumi TV - IPTV Player for Smart TVs",
+                "lumi_desc": "High-performance streaming app built specifically for IPTV playlists on LG (webOS) and Samsung (Tizen) TVs, overcoming severe hardware constraints.",
+                "lumi_h1_title": "<i class=\"fa-solid fa-microchip\"></i> Fluidity on Constrained Hardware",
+                "lumi_h1_desc": "The project's key challenge: ultra-lean rendering maintaining solid 60fps under tight CPU and RAM limitations on Smart TVs.",
+                "lumi_h2_title": "<i class=\"fa-solid fa-gamepad\"></i> Remote Control Navigation",
+                "lumi_h2_desc": "Directional spatial focus (D-Pad) engineered strictly for physical TV remotes, mapping native webOS and Tizen keycodes.",
+                "lumi_h3_title": "<i class=\"fa-solid fa-tv\"></i> LG & Samsung Compliance",
+                "lumi_h3_desc": "App lifecycle and performance aligned with official store standards for LG Content Store and Samsung Smart Hub.",
+                "portal_tag": "EdTech SaaS & Data Pipeline • Marketplace",
+                "portal_title": "Portal Language - Educational Hub & Acquisition",
+                "portal_desc": "Platform connecting English teachers and students with custom portfolio sites, Stripe-powered digital store, and automated LinkedIn lead generation.",
+                "portal_h1_title": "<i class=\"fa-solid fa-robot\"></i> LinkedIn Lead Generation Pipeline",
+                "portal_h1_desc": "Automated scraping filtering high-intent professionals seeking English, feeding a fresh weekly pool of qualified student leads.",
+                "portal_h2_title": "<i class=\"fa-solid fa-cloud\"></i> Zero-Cost Media (Google Drive)",
+                "portal_h2_desc": "Smart content delivery serving lessons and files via structured Google Drive links, eliminating video infrastructure costs.",
+                "portal_h3_title": "<i class=\"fa-solid fa-store\"></i> Portfolios & Digital Store (Stripe)",
+                "portal_h3_desc": "Each instructor gets a dedicated public website, integrated course storefront via Stripe, and affiliate system with discounts.",
                 "stack_tag": "Technical Ecosystem",
                 "stack_title": "Tools & AI Agents",
                 "stack_card_title": "High-Performance Environment",
@@ -1776,25 +2135,17 @@
                 });
             }
 
-            // Sincronização dos Dots e Scroll/Swipe do Carrossel
-            const track = document.getElementById('foodapp-track');
-            const dotsContainer = document.getElementById('carousel-dots-container');
-            if (track && dotsContainer) {
-                const slides = track.querySelectorAll('.carousel-slide');
-                dotsContainer.innerHTML = '';
-                slides.forEach((slide, i) => {
-                    const dot = document.createElement('button');
-                    dot.classList.add('carousel-dot');
-                    if (i === 0) dot.classList.add('active');
-                    dot.setAttribute('aria-label', `Ir para slide ${i + 1}`);
-                    dot.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        goToSlide(i);
-                    });
-                    dotsContainer.appendChild(dot);
-                });
+            // Inicialização Universal dos Carrosséis de Projetos
+            const tracks = document.querySelectorAll('.carousel-track');
+            tracks.forEach(track => {
+                const projectId = track.dataset.project;
+                if (!projectId) return;
 
-                // Atualiza dots em tempo real no scroll/touch swipe nativo
+                projectCarousels[projectId] = {
+                    currentIndex: 0,
+                    track: track
+                };
+
                 let scrollTimeout;
                 track.addEventListener('scroll', () => {
                     clearTimeout(scrollTimeout);
@@ -1802,21 +2153,26 @@
                         const slideWidth = track.clientWidth;
                         if (slideWidth > 0) {
                             const newIndex = Math.round(track.scrollLeft / slideWidth);
-                            if (newIndex !== currentSlide && newIndex >= 0 && newIndex < slides.length) {
-                                updateDots(newIndex);
+                            if (newIndex >= 0 && newIndex < track.querySelectorAll('.carousel-slide').length) {
+                                projectCarousels[projectId].currentIndex = newIndex;
                             }
                         }
                     }, 50);
                 }, { passive: true });
+            });
 
-                // Ajusta alinhamento do slide em caso de resize da tela
-                window.addEventListener('resize', () => {
-                    const slideWidth = track.clientWidth;
-                    if (slideWidth > 0) {
-                        track.scrollLeft = currentSlide * slideWidth;
+            // Ajusta alinhamento dos slides em resize de tela para todos os projetos
+            window.addEventListener('resize', () => {
+                Object.keys(projectCarousels).forEach(projectId => {
+                    const p = projectCarousels[projectId];
+                    if (p && p.track) {
+                        const slideWidth = p.track.clientWidth;
+                        if (slideWidth > 0) {
+                            p.track.scrollLeft = p.currentIndex * slideWidth;
+                        }
                     }
                 });
-            }
+            });
 
             // Modal / Zoom de Imagens
             const carouselImages = document.querySelectorAll('.carousel-slide img');
@@ -1849,6 +2205,17 @@
                 if (e.key === 'Escape') {
                     closeImageModal();
                     closeFeedbackModal();
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                    const modal = document.getElementById('image-modal');
+                    if (!modal || !modal.classList.contains('visible')) {
+                        const activeTabBtn = document.querySelector('.project-tab-btn.active');
+                        if (activeTabBtn) {
+                            const activeProject = activeTabBtn.dataset.target;
+                            if (activeProject) {
+                                moveProjectCarousel(activeProject, e.key === 'ArrowRight' ? 1 : -1);
+                            }
+                        }
+                    }
                 }
             });
 
